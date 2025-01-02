@@ -5,15 +5,18 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
 
-100.times do
-  Movie.create!([
-    { name: Faker::Movie.title }
-  ])
+# Crear películas
+30.times do
+  Movie.create!(title: Faker::Movie.title)
 end
 
+# Crear clientes con películas asociadas
 10.times do
-  Client.create!([
-    { name: Faker::Name.name, age: Faker::Number.between(from: 18, to: 100) }
-  ])
+  Client.create!(
+    name: Faker::Name.name,
+    age: Faker::Number.between(from: 18, to: 60),
+    movie_id: Faker::Number.between(from: 1, to: 30),
+  )
 end
