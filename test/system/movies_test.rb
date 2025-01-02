@@ -14,7 +14,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movies_url
     click_on "New movie"
 
-    fill_in "Name", with: @movie.name
+    fill_in "Name", with: @movie.title
     click_on "Create Movie"
 
     assert_text "Movie was successfully created"
@@ -25,7 +25,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movie_url(@movie)
     click_on "Edit this movie", match: :first
 
-    fill_in "Name", with: @movie.name
+    fill_in "Name", with: @movie.title
     click_on "Update Movie"
 
     assert_text "Movie was successfully updated"

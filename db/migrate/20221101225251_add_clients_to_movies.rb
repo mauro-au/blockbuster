@@ -1,5 +1,5 @@
 class AddClientsToMovies < ActiveRecord::Migration[7.0]
   def change
-    add_reference :movies, :client, foreign_key: true
+    add_reference :clients, :movie, null: false, foreign_key: true, index: true
   end
 end

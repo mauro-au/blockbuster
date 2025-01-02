@@ -1,7 +1,3 @@
 class Movie < ApplicationRecord
-  belongs_to :client, optional: true
-
-  def to_s
-    self.name
-  end
+  has_many :clients, dependent: :nullify
 end
