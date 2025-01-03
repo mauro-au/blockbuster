@@ -12,11 +12,17 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label :title, style: "display: block", class:"form-label mt-3" %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-3">
+    <div class="d-flex justify-content-center">
+      <%= link_to "<", movies_path, class: 'btn btn-outline-primary m-2' %>
+      <% if action_name == 'edit' %>
+        <%= link_to "Mostrar Película", @movie, class: 'btn btn-outline-primary m-2' %>
+      <% end %>
+      <%= form.submit class: "btn btn-primary m-2" %>
+    </div>
   </div>
 <% end %>
