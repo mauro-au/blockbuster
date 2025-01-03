@@ -1,4 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
 
 <div class="container">
   <h1 class='text-center mt-5'>Películas</h1>
