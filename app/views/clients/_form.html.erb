@@ -12,21 +12,27 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, style: "display: block", class:"form-label mt-3" %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
   <div>
-    <%= form.label :age, style: "display: block" %>
-    <%= form.text_field :age %>
+    <%= form.label :age, style: "display: block", class:"form-label mt-3" %>
+    <%= form.text_field :age, class:"form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :movie_id, class:"form-label" %>
-    <%= form.collection_select :movie_id, Movie.all, :id, :title %>
+    <%= form.label :movie_id, style: "display: block", class:"form-label mt-3" %>
+    <%= form.collection_select :movie_id, Movie.all, :id, :title, {}, { class: "form-select" } %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <div class="d-flex justify-content-center">
+      <%= link_to "<", clients_path, class: 'btn btn-outline-primary m-2' %>
+      <% if action_name == 'edit' %>
+        <%= link_to "Mostrar Cliente", @client, class: 'btn btn-outline-primary m-2' %>
+      <% end %>
+      <%= form.submit class: "btn btn-primary m-2" %>
+    </div>
   </div>
 <% end %>
